@@ -16,13 +16,13 @@ namespace simpleLogger.Strategy
         public DataBaseLoggerStrategy(IDataBase dataBase)
         {
 
-            DataBase = dataBase;
+            this.DataBase = dataBase;
 
         }
 
         public void Log(int userID, string username, string proffesion, string message)
         {
-            DataBase.AddLog(userID, username, proffesion, message);
+            this.DataBase.AddLog(userID, username, proffesion, message);
         }
     }
 }
