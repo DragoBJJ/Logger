@@ -21,11 +21,11 @@ namespace simpleLogger
 
             MySqlDataBase sqlDataBase = new();
 
-            DataBaseLoggerStrategy msqlStrategy = new(sqlDataBase);
+            DataBaseLoggerStrategy dataBaseStrategy = new(sqlDataBase);
             FileLoggerStrategy fileStrategy = new(OWNER, FILE_PATH);
             EventLoggerStrategy eventStrategy = new(SYSTEM_EVENT_SOURCE);
 
-            LoggerContext logger = new(msqlStrategy, fileStrategy);
+            LoggerContext logger = new(dataBaseStrategy, fileStrategy);
 
             logger.addStrategy(StrategyKey.EVENT, eventStrategy);
 
