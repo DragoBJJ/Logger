@@ -35,3 +35,4 @@ ILogger
       +-- getAllStrategyNames(): string[]
       |
       +-- LogActivity(key: StrategyKey, userID: int, name: string, profession: string, message: string): void
+      
