@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simpleLogger", "simpleLogger\simpleLogger.csproj", "{FEE217C7-F90B-4965-8B48-42DD0D3C721B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEE217C7-F90B-4965-8B48-42DD0D3C721B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE217C7-F90B-4965-8B48-42DD0D3C721B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE217C7-F90B-4965-8B48-42DD0D3C721B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE217C7-F90B-4965-8B48-42DD0D3C721B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCD6375F-8DD5-4B26-84B3-1763020EAAF1}
+	EndGlobalSection
+EndGlobal
