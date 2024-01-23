@@ -7,39 +7,34 @@ using simpleLogger.Database;
 
 namespace simpleLogger
 {
-
     class Program
     {
-
-
         static void Main(string[] args)
         {
 
-            string OWNER = "YOUR_FOLDER_NAME";
+            string OWNER = "YOUR_NAME";
             string FILE_PATH = $"C:\\Users\\{OWNER}\\Desktop";
             string SYSTEM_EVENT_SOURCE = "Application";
 
-            MySqlDataBase sqlDataBase = new();
+            //MySqlDataBase sqlDataBase = new();
+            //DataBaseLoggerStrategy dataBaseStrategy = new(sqlDataBase);
 
-            DataBaseLoggerStrategy dataBaseStrategy = new(sqlDataBase);
             FileLoggerStrategy fileStrategy = new(OWNER, FILE_PATH);
             EventLoggerStrategy eventStrategy = new(SYSTEM_EVENT_SOURCE);
 
-            LoggerContext logger = new(dataBaseStrategy, fileStrategy);
+            LoggerContext logger = new();
 
-            logger.addStrategy(StrategyKey.EVENT, eventStrategy);
-
-
-            Console.WriteLine($"All Strategies in LoogerContext: {logger.getAllStrategyNames()}");
+            logger.AddStrategy(fileStrategy);
+            logger.AddStrategy(eventStrategy);
+    
+            Console.WriteLine($"All Strategies in LoggerContext: {logger.GetAllStrategyNames()}");
 
 
             logger.LogActivity(StrategyKey.FILE, 10, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
             logger.LogActivity(StrategyKey.EVENT, 1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
-            logger.LogActivity(StrategyKey.DATABASE, 10, "Leonardo", "Actor", "I'm Leonardo Da Vinci !");
+            //logger.LogActivity(StrategyKey.DATABASE, 10, "Leonardo", "Actor", "I'm Leonardo Da Vinci !");
 
             //logger.LogAllActivityStrategies(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
-
-
 
         }
     }

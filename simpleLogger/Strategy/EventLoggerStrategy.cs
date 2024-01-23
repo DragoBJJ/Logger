@@ -10,6 +10,7 @@ namespace simpleLogger.Strategy
 {
     class EventLoggerStrategy : ILogger
     {
+        private readonly StrategyKey ID = StrategyKey.EVENT;
 
         readonly EventLog eventLog;
         private readonly string source;
@@ -21,7 +22,10 @@ namespace simpleLogger.Strategy
             eventLog.Source = this.source;
             eventLog.Log = this.source;
         }
-
+        public StrategyKey GetID()
+        {
+            return this.ID;
+        }
 
         private void CreateEventLogMessage(string message)
         {
@@ -77,5 +81,7 @@ namespace simpleLogger.Strategy
             string m = $"userID: {userID}, Name : {name}, Proffesion: {proffesion}, Message: {message}";
             CreateEventLogMessage(m);
         }
+
+     
     }
 }

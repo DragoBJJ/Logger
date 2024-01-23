@@ -8,6 +8,7 @@ namespace simpleLogger.Interfaces
 {
     interface ILogger
     {
+        StrategyKey GetID();
         void Log(int userID, string name, string proffesion, string message);
     }
 }

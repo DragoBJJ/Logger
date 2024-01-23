@@ -10,7 +10,7 @@ namespace simpleLogger.Strategy
 {
     class DataBaseLoggerStrategy : ILogger
     {
-
+        private readonly StrategyKey ID = StrategyKey.DATABASE;
         private readonly IDataBase DataBase;
 
         public DataBaseLoggerStrategy(IDataBase dataBase)
@@ -18,6 +18,11 @@ namespace simpleLogger.Strategy
 
             this.DataBase = dataBase;
 
+        }
+
+        public StrategyKey GetID()
+        {
+            return this.ID;
         }
 
         public void Log(int userID, string username, string proffesion, string message)

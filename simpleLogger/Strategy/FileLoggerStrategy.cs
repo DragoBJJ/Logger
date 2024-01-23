@@ -15,6 +15,7 @@ namespace simpleLogger.Strategy;
 public class FileLoggerStrategy : ILogger
 
 {
+    private readonly StrategyKey ID = StrategyKey.FILE;
     private string FileName { get; set; }
     private string FilePath { get; set; }
 
@@ -22,6 +23,10 @@ public class FileLoggerStrategy : ILogger
     public FileLoggerStrategy(string owner, string path)
     {
         SaveOwnerData(owner, path);
+    }
+    public StrategyKey GetID()
+    {
+        return this.ID;
     }
 
     private void SaveLogFile(int userID, string name, string proffesion, string message)
@@ -46,4 +51,6 @@ public class FileLoggerStrategy : ILogger
     {
         SaveLogFile(userID, name, proffesion, message);
     }
+
+  
 }

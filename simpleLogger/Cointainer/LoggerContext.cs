@@ -14,25 +14,19 @@ namespace simpleLogger;
 class LoggerContext
 {
 
-
     private readonly Dictionary<StrategyKey, ILogger> _strategies;
 
-
-    public LoggerContext(DataBaseLoggerStrategy databaseStrategy, FileLoggerStrategy fileStrategy)
+    public void AddStrategy( ILogger logger)
     {
-        _strategies = new Dictionary<StrategyKey, ILogger>()
-         {
-             {StrategyKey.DATABASE, databaseStrategy },
-             {StrategyKey.FILE, fileStrategy }
-         };
+        this._strategies[logger.GetID()] = logger;
     }
 
-    public void addStrategy(StrategyKey strategyKey, ILogger newStrategy)
+    public LoggerContext()
     {
-        _strategies[strategyKey] = newStrategy;
+        this._strategies = new Dictionary<StrategyKey, ILogger>();
     }
 
-    public string getAllStrategyNames()
+    public string GetAllStrategyNames()
     {
         IEnumerable<string> items = from strategy in _strategies select $"{strategy.Key} Strategy";
         return string.Join(", ", items);
