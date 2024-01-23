@@ -10,14 +10,14 @@ using simpleLogger.Interfaces;
 
 namespace simpleLogger.Database
 {
-    class MySqlDataBase : IDataBase
+    class DataBase : IDataBase
 
     {
 
         private readonly SqlConnection Connection;
 
 
-        public MySqlDataBase()
+        public DataBase()
         {
 
             try
