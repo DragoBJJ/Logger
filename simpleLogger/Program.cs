@@ -18,7 +18,7 @@ namespace simpleLogger
 
             DataBase SqlDataBase = new();
 
-            DataBaseLoggerStrategy DataBaseStrategy = new(SqlDataBase);
+            DataBaseLoggerStrategy dataBaseStrategy = new(SqlDataBase);
             FileLoggerStrategy fileStrategy = new(OWNER, FILE_PATH);
             EventLoggerStrategy eventStrategy = new(SYSTEM_EVENT_SOURCE);
 
@@ -26,14 +26,12 @@ namespace simpleLogger
 
             logger.AddStrategy(fileStrategy);
             logger.AddStrategy(eventStrategy);
+            logger.AddStrategy(dataBaseStrategy);
     
             Console.WriteLine($"All Strategies in LoggerContext: {logger.GetAllStrategyNames()}");
 
 
             logger.Logger = eventStrategy;
-            logger.LogActivity(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
-
-            logger.Logger = fileStrategy;
             logger.LogActivity(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
 
