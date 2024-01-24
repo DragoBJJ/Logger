@@ -27,16 +27,13 @@ namespace simpleLogger
                 Strategy = fileStrategy
             };
 
-            logger.Strategy = eventStrategy;
-
-
             logger.LogActivity(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
             Console.WriteLine($"All Strategies in LoggerContext: {logger.GetAllStrategyNames()}");
 
 
            logger.LogActivityByKey(StrategyKey.FILE, 10, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
-           logger.LogActivityByKey(StrategyKey.EVENT, 1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
+           //logger.LogActivityByKey(StrategyKey.EVENT, 1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
            logger.LogAllActivityStrategies(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
