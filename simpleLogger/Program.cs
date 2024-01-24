@@ -12,7 +12,7 @@ namespace simpleLogger
         static void Main(string[] args)
         {
 
-            string OWNER = "Jakub";
+            string OWNER = "YOUR_FOLDER_NAME";
             string FILE_PATH = $"C:\\Users\\{OWNER}\\Desktop";
             string SYSTEM_EVENT_SOURCE = "Application";
 
