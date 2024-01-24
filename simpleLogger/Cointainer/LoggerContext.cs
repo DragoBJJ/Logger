@@ -32,14 +32,11 @@ class LoggerContext
 
     public ILogger Strategy
     {
-
         set
         {
             this.strategy = value;
             this._strategies[value.GetID()] = value;
-        }
-
-        
+        }       
     }
 
     public string GetAllStrategyNames()
