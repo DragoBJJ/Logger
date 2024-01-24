@@ -24,7 +24,7 @@ class LoggerContext
         this._strategies = new Dictionary<StrategyKey, ILogger>();
     }
 
-    public ILogger Logger
+    public ILogger strategy
     {
       
         set
@@ -39,19 +39,26 @@ class LoggerContext
          this.logger.Log(userID, name, proffesion, messages);
     }
 
-    public void AddStrategy(ILogger logger)
+    public ILogger Strategy
     {
-        this._strategies[logger.GetID()] = logger;
+
+        set
+        {
+            this.strategy = value;
+            this._strategies[value.GetID()] = value;
+        }
+
+        
     }
 
     public string GetAllStrategyNames()
     {
-        IEnumerable<string> items = from strategy in _strategies select $"{strategy.Key} Strategy";
+        var items = from strategy in _strategies select $"{strategy.Key} Strategy";
         return string.Join(", ", items);
     }
     public void LogActivityByKey(StrategyKey strategy, int userID, string name, string proffesion, string messages)
     {
-        if (_strategies.TryGetValue(strategy, out ILogger logger))
+        if (_strategies.TryGetValue(strategy, out var logger))
         {
             logger.Log(userID, name, proffesion, messages);
         }
@@ -65,7 +72,7 @@ class LoggerContext
     public void LogAllActivityStrategies(int userID, string name, string proffesion, string messages)
     {
 
-        foreach (ILogger logger in _strategies.Values)
+        foreach (var logger in _strategies.Values)
         {
             logger.Log(userID, name, proffesion, messages);
         }
