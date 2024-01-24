@@ -22,22 +22,18 @@ namespace simpleLogger
             EventLoggerStrategy eventStrategy = new(SYSTEM_EVENT_SOURCE);
             FileLoggerStrategy fileStrategy = new(OWNER, FILE_PATH);
 
-            LoggerContext logger = new()
-            {
-                Strategy = fileStrategy
-            };
+            LoggerContext logger = new();
+
+            logger.Strategy = fileStrategy;
 
             logger.LogActivity(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
             Console.WriteLine($"All Strategies in LoggerContext: {logger.GetAllStrategyNames()}");
 
-
            logger.LogActivityByKey(StrategyKey.FILE, 10, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
            //logger.LogActivityByKey(StrategyKey.EVENT, 1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
 
            logger.LogAllActivityStrategies(1, "Leonardo", "Doctor / Enginner", "I'm Leonardo Da Vinci !");
-
         }
     }
-
 }

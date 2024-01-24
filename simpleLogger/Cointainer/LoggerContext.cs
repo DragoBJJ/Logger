@@ -16,27 +16,18 @@ class LoggerContext
 
     private readonly Dictionary<StrategyKey, ILogger> _strategies;
 
-    private ILogger logger;
-
 
     public LoggerContext()
     {
         this._strategies = new Dictionary<StrategyKey, ILogger>();
     }
 
-    public ILogger strategy
-    {
-      
-        set
-        {
-            this.logger = value;
-        }
-
-    }
+    private ILogger strategy;
+              
 
     public void LogActivity(int userID, string name, string proffesion, string messages)
     {
-         this.logger.Log(userID, name, proffesion, messages);
+         this.strategy.Log(userID, name, proffesion, messages);
     }
 
     public ILogger Strategy
