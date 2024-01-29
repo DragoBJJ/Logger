@@ -15,28 +15,22 @@ class LoggerContext
 {
 
     private readonly Dictionary<StrategyKey, ILogger> _strategies;
-
+    private  ILogger _strategy;
 
     public LoggerContext()
     {
         this._strategies = new Dictionary<StrategyKey, ILogger>();
     }
 
-    private ILogger strategy;
-              
+    public void AddStrategy(ILogger strategy)
+    {
+        this._strategies[strategy.GetID()] = strategy;  
+        this._strategy = strategy;
+    }
 
     public void LogActivity(int userID, string name, string proffesion, string messages)
     {
-         this.strategy.Log(userID, name, proffesion, messages);
-    }
-
-    public ILogger Strategy
-    {
-        set
-        {
-            this.strategy = value;
-            this._strategies[value.GetID()] = value;
-        }       
+         this._strategy.Log(userID, name, proffesion, messages);
     }
 
     public string GetAllStrategyNames()
